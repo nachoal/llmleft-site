@@ -85,25 +85,77 @@ const faqSchema = {
           <p>LLM Left turns usage windows into a calm signal you can check without opening another dashboard.</p>
         </div>
         <div class="surface-grid">
-          <article class="surface-card surface-card-menu">
-            <div class="surface-icon">⌁</div>
-            <div>
+          <article class="surface-card">
+            <div class="surface-visual surface-visual-menu" aria-hidden="true">
+              <div class="mini-menubar">
+                <div><span class="mini-menu-strong">Finder</span><span>File</span><span>Edit</span><span>View</span></div>
+                <div>
+                  <span class="mini-menu-live"><img src="/icon-64.png" width="12" height="12" alt="" loading="lazy" /> 64%</span>
+                  <span>Fri 4:12 PM</span>
+                </div>
+              </div>
+              <div class="mini-panel">
+                <div class="mini-panel-head">
+                  <strong>LLM Left</strong>
+                  <span class="mini-live"><i></i> Live</span>
+                </div>
+                <div class="mini-row">
+                  <div class="mini-row-head"><span class="mini-mark">C</span><strong>Claude</strong><b>64% left</b></div>
+                  <div class="meter-track"><span class="meter-fill meter-64"></span></div>
+                  <div class="mini-row-foot"><span>Resets Friday 4:00 PM</span><span>On pace</span></div>
+                </div>
+                <div class="mini-row">
+                  <div class="mini-row-head"><span class="mini-mark mini-mark-code">&gt;_</span><strong>Codex</strong><b>81% left</b></div>
+                  <div class="meter-track"><span class="meter-fill meter-81"></span></div>
+                  <div class="mini-row-foot"><span>Resets in 2h 18m</span><span>2 banked</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="surface-body">
               <span class="card-number">01</span>
               <h3>Mac menu bar</h3>
               <p>See the next limit before you start a long session. Open the panel for reset times, pace, and history.</p>
             </div>
           </article>
           <article class="surface-card">
-            <div class="surface-icon">▯</div>
-            <div>
+            <div class="surface-visual surface-visual-phone" aria-hidden="true">
+              <div class="mini-phone">
+                <div class="mini-phone-screen">
+                  <div class="mini-island"></div>
+                  <div class="mini-phone-title"><span>LLM Left</span><span class="mini-live mini-live-solid">Live</span></div>
+                  <div class="mini-phone-card">
+                    <div class="mini-ring"><span>64<small>%</small></span></div>
+                    <div class="mini-phone-copy"><strong>Claude · Weekly limit</strong><span>Resets Fri · 4:00 PM</span></div>
+                  </div>
+                  <div class="mini-phone-row"><span>CODEX · 5H</span><b>81%</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="surface-body">
               <span class="card-number">02</span>
               <h3>iPhone companion</h3>
               <p>Carry the same usage snapshot with you through your private iCloud account. Credentials never follow it.</p>
             </div>
           </article>
           <article class="surface-card">
-            <div class="surface-icon">◫</div>
-            <div>
+            <div class="surface-visual surface-visual-widgets" aria-hidden="true">
+              <div class="mini-widgets">
+                <div class="mini-widget-row">
+                  <div class="mini-widget">
+                    <span>CLAUDE</span>
+                    <b>64%</b>
+                    <small>Resets Fri 4:00 PM</small>
+                  </div>
+                  <div class="mini-widget mini-widget-green">
+                    <span>BANKED</span>
+                    <b>2</b>
+                    <small>Next expires in 6d</small>
+                  </div>
+                </div>
+                <span class="mini-lockline">CLAUDE 64 · CODEX 81 · <b>SYNCED 2M AGO</b></span>
+              </div>
+            </div>
+            <div class="surface-body">
               <span class="card-number">03</span>
               <h3>Home & Lock widgets</h3>
               <p>Put remaining usage where you already look, with a timestamp that makes stale data clear.</p>
@@ -145,13 +197,23 @@ const faqSchema = {
         </div>
         <div class="privacy-diagram" aria-label="Data that stays on the Mac and data that syncs through private CloudKit">
           <div class="privacy-node privacy-node-mac">
-            <span class="node-label">STAYS ON YOUR MAC</span>
-            <strong>Credentials<br />Prompts<br />Detailed history</strong>
+            <span class="node-label">Stays on your Mac</span>
+            <ul class="node-list">
+              <li>Credentials</li>
+              <li>Prompts</li>
+              <li>Detailed history</li>
+            </ul>
+            <span class="node-foot">Read locally by the signed helper</span>
           </div>
-          <div class="privacy-flow"><span>encrypted</span><i>→</i></div>
+          <div class="privacy-flow"><span>Encrypted <i aria-hidden="true">→</i></span></div>
           <div class="privacy-node privacy-node-cloud">
-            <span class="node-label">PRIVATE CLOUDKIT</span>
-            <strong>Limits<br />Reset times<br />Snapshot age</strong>
+            <span class="node-label">Private CloudKit</span>
+            <ul class="node-list">
+              <li>Limits</li>
+              <li>Reset times</li>
+              <li>Snapshot age</li>
+            </ul>
+            <span class="node-foot">Readable only by your iCloud account</span>
           </div>
         </div>
       </div>
