@@ -280,6 +280,11 @@ button, input, textarea, select { font: inherit; }
 .sys-meter span { display: block; height: 100%; border-radius: inherit; }
 .sys-meter-blue { background: var(--sys-blue); }
 .sys-meter-orange { background: var(--sys-orange); }
+/* Meter widths as classes: the CSP (style-src 'self') blocks inline styles. */
+.pct-68 { width: 68%; }
+.pct-79 { width: 79%; }
+.pct-82 { width: 82%; }
+.pct-96 { width: 96%; }
 .sys-badge { flex: none; border-radius: 99em; padding: 0.28em 0.55em; font-size: 0.62em; font-weight: 700; }
 .sys-badge-blue { color: #45a2ff; background: rgb(10 132 255 / 0.16); }
 .sys-badge-orange { color: #ffb340; background: rgb(255 159 10 / 0.16); }
