@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PhonePreview from "../components/PhonePreview.astro";
 import ProductStage from "../components/ProductStage.astro";
+import UsagePanel from "../components/UsagePanel.astro";
+import WidgetMedium from "../components/WidgetMedium.astro";
 import { download, faqs, product, release, site } from "../config";
 
 const softwareSchema = {
@@ -87,29 +90,17 @@ const faqSchema = {
         <div class="surface-grid">
           <article class="surface-card">
             <div class="surface-visual surface-visual-menu" aria-hidden="true">
-              <div class="mini-menubar">
-                <div><span class="mini-menu-strong">Finder</span><span>File</span><span>Edit</span><span>View</span></div>
-                <div>
-                  <span class="mini-menu-live"><img src="/icon-64.png" width="12" height="12" alt="" loading="lazy" /> 64%</span>
+              <div class="mac-menubar">
+                <div class="mb-left"><span class="mb-strong">Finder</span><span>File</span><span>Edit</span><span>View</span></div>
+                <div class="mb-right">
+                  <span class="mb-item">
+                    <svg class="mp-gauge" viewBox="0 0 20 20"><path d="M3.2 14.6a7.6 7.6 0 1 1 13.6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="14.2" r="1.5" fill="currentColor"/><path d="M10 13.4V8.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="4.9" cy="9.4" r="0.95" fill="currentColor"/><circle cx="15.1" cy="9.4" r="0.95" fill="currentColor"/></svg>
+                    C 68%&ensp;A 82%
+                  </span>
                   <span>Fri 4:12 PM</span>
                 </div>
               </div>
-              <div class="mini-panel">
-                <div class="mini-panel-head">
-                  <strong>LLM Left</strong>
-                  <span class="mini-live"><i></i> Live</span>
-                </div>
-                <div class="mini-row">
-                  <div class="mini-row-head"><span class="mini-mark">C</span><strong>Claude</strong><b>64% left</b></div>
-                  <div class="meter-track"><span class="meter-fill meter-64"></span></div>
-                  <div class="mini-row-foot"><span>Resets Friday 4:00 PM</span><span>On pace</span></div>
-                </div>
-                <div class="mini-row">
-                  <div class="mini-row-head"><span class="mini-mark mini-mark-code">&gt;_</span><strong>Codex</strong><b>81% left</b></div>
-                  <div class="meter-track"><span class="meter-fill meter-81"></span></div>
-                  <div class="mini-row-foot"><span>Resets in 2h 18m</span><span>2 banked</span></div>
-                </div>
-              </div>
+              <div class="surface-panel-wrap"><UsagePanel /></div>
             </div>
             <div class="surface-body">
               <span class="card-number">01</span>
@@ -119,17 +110,7 @@ const faqSchema = {
           </article>
           <article class="surface-card">
             <div class="surface-visual surface-visual-phone" aria-hidden="true">
-              <div class="mini-phone">
-                <div class="mini-phone-screen">
-                  <div class="mini-island"></div>
-                  <div class="mini-phone-title"><span>LLM Left</span><span class="mini-live mini-live-solid">Live</span></div>
-                  <div class="mini-phone-card">
-                    <div class="mini-ring"><span>64<small>%</small></span></div>
-                    <div class="mini-phone-copy"><strong>Claude · Weekly limit</strong><span>Resets Fri · 4:00 PM</span></div>
-                  </div>
-                  <div class="mini-phone-row"><span>CODEX · 5H</span><b>81%</b></div>
-                </div>
-              </div>
+              <div class="surface-phone-wrap"><PhonePreview /></div>
             </div>
             <div class="surface-body">
               <span class="card-number">02</span>
@@ -139,20 +120,15 @@ const faqSchema = {
           </article>
           <article class="surface-card">
             <div class="surface-visual surface-visual-widgets" aria-hidden="true">
-              <div class="mini-widgets">
-                <div class="mini-widget-row">
-                  <div class="mini-widget">
-                    <span>CLAUDE</span>
-                    <b>64%</b>
-                    <small>Resets Fri 4:00 PM</small>
+              <div class="surface-widgets-wrap">
+                <WidgetMedium />
+                <div class="w-lock">
+                  <div class="w-lock-text">
+                    <strong>Claude · All Models</strong>
+                    <span>in 1 day, 12 hr</span>
                   </div>
-                  <div class="mini-widget mini-widget-green">
-                    <span>BANKED</span>
-                    <b>2</b>
-                    <small>Next expires in 6d</small>
-                  </div>
+                  <b>82%</b>
                 </div>
-                <span class="mini-lockline">CLAUDE 64 · CODEX 81 · <b>SYNCED 2M AGO</b></span>
               </div>
             </div>
             <div class="surface-body">

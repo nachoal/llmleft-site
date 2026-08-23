@@ -1,6 +1,7 @@
 ---
 import PhonePreview from "./PhonePreview.astro";
 import UsagePanel from "./UsagePanel.astro";
+import WidgetMedium from "./WidgetMedium.astro";
 ---
 
 <div class="product-stage">
@@ -11,8 +12,8 @@ import UsagePanel from "./UsagePanel.astro";
     <span class="stage-private">Credentials stay on your Mac</span>
   </div>
   <div class="stage-devices">
-    <UsagePanel />
-    <PhonePreview />
+    <div class="stage-panel"><UsagePanel /></div>
+    <div class="stage-widget"><WidgetMedium /></div>
+    <div class="stage-phone"><PhonePreview /></div>
   </div>
 </div>
-

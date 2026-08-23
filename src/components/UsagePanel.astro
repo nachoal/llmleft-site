@@ -1,38 +1,61 @@
-<div class="usage-window" aria-label="LLM Left Mac menu showing Claude and Codex usage">
-  <div class="window-topbar">
-    <div class="window-brand">
-      <img src="/icon-64.png" width="26" height="26" alt="" aria-hidden="true" />
-      <div>
-        <strong>LLM Left</strong>
-        <span>Updated just now</span>
+{/* Replica of MenuBarPanel (MacApp/MenuBarViews.swift), dark appearance.
+   Sized in em so wrappers scale it via font-size. */}
+<div class="mac-panel" aria-label="LLM Left menu bar panel showing Codex and Claude limits">
+  <div class="mp-header">
+    <svg class="mp-gauge" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.2 14.6a7.6 7.6 0 1 1 13.6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="14.2" r="1.5" fill="currentColor"/><path d="M10 13.4V8.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="4.9" cy="9.4" r="0.95" fill="currentColor"/><circle cx="15.1" cy="9.4" r="0.95" fill="currentColor"/></svg>
+    <div class="mp-header-text">
+      <strong>LLM Left</strong>
+      <span>Updated 1 min. ago</span>
+    </div>
+    <svg class="mp-glyph" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.2 8a5.2 5.2 0 1 1-1.6-3.75" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.2 1.6l.6 2.8-2.8.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <section class="mp-provider">
+    <div class="mp-provider-head">
+      <i class="pv-mark pv-mark-codex" aria-hidden="true"></i>
+      <strong>Codex</strong>
+      <span>Pro</span>
+    </div>
+    <div class="mp-limit">
+      <strong>Session</strong>
+      <div class="sys-meter"><span class="sys-meter-blue" style="width:79%"></span></div>
+      <div class="mp-limit-foot"><span>79% left</span><span>Resets in 3 hr</span></div>
+    </div>
+    <div class="mp-limit">
+      <strong>Weekly</strong>
+      <div class="sys-meter"><span class="sys-meter-blue" style="width:68%"></span></div>
+      <div class="mp-limit-foot"><span>68% left</span><span>Resets in 5 days</span></div>
+    </div>
+    <div class="mp-banked">
+      <i class="mp-banked-icon" aria-hidden="true">⟲</i>
+      <div class="mp-banked-text">
+        <strong>2 banked resets</strong>
+        <span>Next expires Sep 1 · 8 days</span>
       </div>
+      <i class="mp-chevron" aria-hidden="true">›</i>
     </div>
-    <span class="live-pill"><span></span> Live</span>
-  </div>
+  </section>
 
-  <div class="provider-card provider-claude">
-    <div class="provider-heading">
-      <span class="provider-mark">C</span>
-      <div><strong>Claude</strong><span>Weekly limit</span></div>
-      <b>64% left</b>
+  <section class="mp-provider">
+    <div class="mp-provider-head">
+      <i class="pv-mark pv-mark-claude" aria-hidden="true"></i>
+      <strong>Claude</strong>
+      <span>Max 20x</span>
     </div>
-    <div class="meter-track"><span class="meter-fill meter-64"></span></div>
-    <div class="provider-foot"><span>Resets Friday at 4:00 PM</span><span>On pace</span></div>
-  </div>
-
-  <div class="provider-card provider-codex">
-    <div class="provider-heading">
-      <span class="provider-mark provider-mark-code">&gt;_</span>
-      <div><strong>Codex</strong><span>5-hour window</span></div>
-      <b>81% left</b>
+    <div class="mp-limit">
+      <strong>Session</strong>
+      <div class="sys-meter"><span class="sys-meter-orange" style="width:96%"></span></div>
+      <div class="mp-limit-foot"><span>96% left</span><span>Resets in 4 hr</span></div>
     </div>
-    <div class="meter-track"><span class="meter-fill meter-81"></span></div>
-    <div class="provider-foot"><span>Resets in 2h 18m</span><span>2 banked</span></div>
-  </div>
+    <div class="mp-limit">
+      <strong>Weekly</strong>
+      <div class="sys-meter"><span class="sys-meter-orange" style="width:82%"></span></div>
+      <div class="mp-limit-foot"><span>82% left</span><span>Resets in 1 day</span></div>
+    </div>
+  </section>
 
-  <div class="window-footer">
-    <span><i class="cloud-dot"></i> Private CloudKit</span>
-    <span>⌘ ,</span>
+  <div class="mp-footer">
+    <span class="mp-footer-menu"><svg class="mp-glyph" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.4" y="2.6" width="13.2" height="10.8" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.4 5.8h13.2" stroke="currentColor" stroke-width="1.4"/></svg> Menu bar</span>
+    <span class="mp-footer-right"><svg class="mp-glyph" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2.1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.7v2M8 12.3v2M1.7 8h2M12.3 8h2M3.55 3.55l1.4 1.4M11.05 11.05l1.4 1.4M12.45 3.55l-1.4 1.4M4.95 11.05l-1.4 1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Quit</span>
   </div>
 </div>
-
