@@ -1,0 +1,13 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<span class:list={["brand", { "brand-compact": compact }]}>
+  <img src="/icon-64.png" width="32" height="32" alt="" aria-hidden="true" />
+  <span>LLM Left</span>
+</span>
+

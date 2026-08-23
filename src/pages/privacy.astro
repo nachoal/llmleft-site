@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageShell from "../components/PageShell.astro";
+import { site } from "../config";
+
+const title = "Privacy — LLM Left";
+const description = "See exactly what LLM Left keeps on your Mac, what it can sync through your private CloudKit database, and what the website does not collect.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  url: `${site.url}/privacy/`,
+  description,
+  isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+};
+---
+
+<Layout title={title} description={description} path="/privacy/" schema={schema}>
+  <PageShell eyebrow="Privacy" title="The exact data boundary." intro="LLM Left is designed to move a small usage snapshot between your Apple devices without moving the secrets or content behind it.">
+    <div class="privacy-table" role="table" aria-label="LLM Left data boundary">
+      <div class="privacy-table-head" role="row">
+        <span role="columnheader">Stays on your Mac</span>
+        <span role="columnheader">Can sync through private CloudKit</span>
+      </div>
+      <div class="privacy-table-body" role="row">
+        <ul role="cell">
+          <li>Provider credentials</li>
+          <li>Prompts and conversations</li>
+          <li>Other command-line output</li>
+          <li>The local bridge token</li>
+          <li>Detailed usage history</li>
+        </ul>
+        <ul role="cell">
+          <li>Provider and plan labels</li>
+          <li>Remaining and used percentages</li>
+          <li>Limit names and windows</li>
+          <li>Reset dates and forecasts</li>
+          <li>Snapshot time and pace</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-block">
+      <h2>Your private iCloud account</h2>
+      <p>The synced snapshot uses your private CloudKit database. LLM Left does not run an account service, and it does not send the snapshot to an LLM Left server.</p>
+
+      <h2>No product analytics</h2>
+      <p>The app does not send usage analytics. This website has no analytics script, advertising pixel, session recorder, or third-party font request.</p>
+
+      <h2>Software updates</h2>
+      <p>The Mac app uses Sparkle to check the LLM Left update service. As with a normal web request, the update host can receive an IP address and user agent. It does not receive your provider usage, prompts, or CloudKit data.</p>
+
+      <h2>Local permissions</h2>
+      <p>The Mac app runs a signed local helper on <code>127.0.0.1</code> to read supported provider usage. It does not require a VPN, a Tailscale network, device pairing, or an LLM Left account.</p>
+
+      <h2>Questions</h2>
+      <p>For a privacy issue, use the support path included with the installed app. This page will be updated if the product data boundary changes.</p>
+    </div>
+  </PageShell>
+</Layout>
+

@@ -1,0 +1,18 @@
+---
+import Logo from "./Logo.astro";
+import { download, nav } from "../config";
+---
+
+<header class="site-header">
+  <nav class="nav-shell" aria-label="Main navigation">
+    <a class="logo-link" href="/" aria-label="LLM Left home"><Logo /></a>
+    <div class="nav-links">
+      {nav.links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </div>
+    <a class="button button-small button-dark" href={download.primaryHref}>
+      <span>{download.primaryLabel}</span>
+      <span aria-hidden="true">↓</span>
+    </a>
+  </nav>
+</header>
+

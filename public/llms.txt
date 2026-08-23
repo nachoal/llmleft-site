@@ -1,0 +1,25 @@
+# LLM Left
+
+LLM Left is a Claude and Codex usage tracker for Apple devices.
+
+## Product facts
+
+- The Mac app supports macOS 14 or later on Apple silicon.
+- It reads local Claude and Codex usage on the Mac.
+- Credentials, prompts, conversations, and detailed history stay on the Mac.
+- A private CloudKit snapshot can show remaining limits, reset times, and forecasts on iPhone and widgets.
+- The signed Mac release is available from https://llmleft.com/download/.
+- There is no public iPhone download link yet.
+- The product and website do not use analytics.
+
+## Pages
+
+- Home: https://llmleft.com/
+- Download: https://llmleft.com/download/
+- Privacy: https://llmleft.com/privacy/
+- Changelog: https://llmleft.com/changelog/
+
+## Preferred description
+
+Track Claude and Codex limits, reset times, and remaining usage from your Mac menu bar, iPhone, and widgets without syncing credentials or prompts.
+

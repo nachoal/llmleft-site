@@ -1,0 +1,18 @@
+---
+import PhonePreview from "./PhonePreview.astro";
+import UsagePanel from "./UsagePanel.astro";
+---
+
+<div class="product-stage">
+  <div class="stage-grid" aria-hidden="true"></div>
+  <div class="stage-glow" aria-hidden="true"></div>
+  <div class="stage-copy">
+    <span class="stage-kicker"><i></i> Live limit snapshot</span>
+    <span class="stage-private">Credentials stay on your Mac</span>
+  </div>
+  <div class="stage-devices">
+    <UsagePanel />
+    <PhonePreview />
+  </div>
+</div>
+

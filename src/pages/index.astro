@@ -1,0 +1,188 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProductStage from "../components/ProductStage.astro";
+import { download, faqs, product, release, site } from "../config";
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: site.name,
+  url: site.url,
+  description: site.description,
+  applicationCategory: product.applicationCategory,
+  operatingSystem: product.operatingSystem,
+  softwareVersion: release.version,
+  datePublished: release.published,
+  downloadUrl: release.downloadUrl,
+  image: `${site.url}${site.ogImage}`,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+  },
+  featureList: [
+    "Claude usage tracking",
+    "Codex usage tracking",
+    "Reset times and remaining limits",
+    "Mac menu bar status",
+    "Private CloudKit snapshot for iPhone and widgets",
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+---
+
+<Layout schema={[softwareSchema, faqSchema]}>
+  <main>
+    <section class="hero page-container">
+      <div class="hero-copy">
+        <p class="hero-badge"><span></span> Claude + Codex usage tracker</p>
+        <h1>
+          Know what you have left.
+          <span class="hero-extension">Before it slows you down.</span>
+        </h1>
+        <p class="hero-lede">
+          See limits, reset times, and pace from your Mac menu bar, iPhone, and widgets.
+          Your credentials and prompts stay on your Mac.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-green" href={download.primaryHref}>
+            <span>{download.primaryLabel}</span><span aria-hidden="true">↓</span>
+          </a>
+          <a class="button button-light" href={download.secondaryHref}>{download.secondaryLabel}</a>
+        </div>
+        <div class="hero-proof" aria-label="System requirements and privacy">
+          <span><i>✓</i> {product.minimumMacOS}</span>
+          <span><i>✓</i> {product.architecture}</span>
+          <span><i>✓</i> No account</span>
+        </div>
+      </div>
+      <ProductStage />
+    </section>
+
+    <section class="signal-strip" aria-label="LLM Left product principles">
+      <div class="page-container signal-grid">
+        <span>Limits, not guesswork</span>
+        <span>Private CloudKit snapshot</span>
+        <span>Zero analytics</span>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="dark-section">
+      <div class="page-container">
+        <p class="eyebrow eyebrow-green">One live snapshot</p>
+        <div class="section-heading dark-heading">
+          <h2>One glance. Your providers. Three screens.</h2>
+          <p>LLM Left turns usage windows into a calm signal you can check without opening another dashboard.</p>
+        </div>
+        <div class="surface-grid">
+          <article class="surface-card surface-card-menu">
+            <div class="surface-icon">⌁</div>
+            <div>
+              <span class="card-number">01</span>
+              <h3>Mac menu bar</h3>
+              <p>See the next limit before you start a long session. Open the panel for reset times, pace, and history.</p>
+            </div>
+          </article>
+          <article class="surface-card">
+            <div class="surface-icon">▯</div>
+            <div>
+              <span class="card-number">02</span>
+              <h3>iPhone companion</h3>
+              <p>Carry the same usage snapshot with you through your private iCloud account. Credentials never follow it.</p>
+            </div>
+          </article>
+          <article class="surface-card">
+            <div class="surface-icon">◫</div>
+            <div>
+              <span class="card-number">03</span>
+              <h3>Home & Lock widgets</h3>
+              <p>Put remaining usage where you already look, with a timestamp that makes stale data clear.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow-section page-container">
+      <p class="eyebrow">How it works</p>
+      <div class="section-heading">
+        <h2>A small local bridge. A useful private snapshot.</h2>
+        <p>The Mac reads supported provider usage locally, shapes only the status fields you need, and makes them available to your Apple devices.</p>
+      </div>
+      <ol class="workflow-list">
+        <li>
+          <span>01</span>
+          <div><h3>Read locally</h3><p>LLM Left reads the available Claude and Codex usage data on your Mac through its signed local helper.</p></div>
+        </li>
+        <li>
+          <span>02</span>
+          <div><h3>Reduce to a snapshot</h3><p>Provider labels, remaining percentages, reset dates, and forecasts become a small status record.</p></div>
+        </li>
+        <li>
+          <span>03</span>
+          <div><h3>Show it everywhere</h3><p>Your private CloudKit database makes that snapshot available to the iPhone app and widgets.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="privacy-section">
+      <div class="page-container privacy-grid">
+        <div class="privacy-copy">
+          <p class="eyebrow">Privacy by architecture</p>
+          <h2>Your usage crosses devices. Your credentials do not.</h2>
+          <p>LLM Left does not sync prompts, conversations, provider credentials, bridge tokens, or detailed history. The website does not load analytics or tracking pixels.</p>
+          <a class="text-link" href="/privacy/">Read the exact data boundary <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="privacy-diagram" aria-label="Data that stays on the Mac and data that syncs through private CloudKit">
+          <div class="privacy-node privacy-node-mac">
+            <span class="node-label">STAYS ON YOUR MAC</span>
+            <strong>Credentials<br />Prompts<br />Detailed history</strong>
+          </div>
+          <div class="privacy-flow"><span>encrypted</span><i>→</i></div>
+          <div class="privacy-node privacy-node-cloud">
+            <span class="node-label">PRIVATE CLOUDKIT</span>
+            <strong>Limits<br />Reset times<br />Snapshot age</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section page-container">
+      <p class="eyebrow">Questions, answered</p>
+      <div class="faq-layout">
+        <h2>Before you install.</h2>
+        <div class="faq-list">
+          {faqs.map((faq, index) => (
+            <details open={index === 0}>
+              <summary><span>{faq.question}</span><i aria-hidden="true">+</i></summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-wrap page-container">
+      <div class="closing-card">
+        <p>LLM LEFT FOR MAC</p>
+        <h2>Know the limit.<br />Keep the flow.</h2>
+        <div class="closing-actions">
+          <a class="button button-black" href={release.downloadUrl}>Download version {release.version} <span aria-hidden="true">↓</span></a>
+          <a href="/download/">Release details →</a>
+        </div>
+        <span class="closing-meta">{product.minimumMacOS} · {product.architecture} · {release.size}</span>
+      </div>
+    </section>
+  </main>
+</Layout>
+

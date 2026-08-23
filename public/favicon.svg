@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <title>LLM Left</title>
+  <rect width="1024" height="1024" rx="224" fill="#050706"/>
+  <path d="M160 768C160 573.6 317.6 416 512 416C706.4 416 864 573.6 864 768H704C704 662 618 576 512 576C406 576 320 662 320 768Z" fill="#fff"/>
+  <path d="M470 704L692 450L766 524L554 746Z" fill="#00f56a"/>
+  <circle cx="512" cy="768" r="72" fill="#fff"/>
+  <rect x="704" y="224" width="160" height="160" rx="24" fill="#00f56a"/>
+</svg>
+

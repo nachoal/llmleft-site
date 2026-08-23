@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageShell from "../components/PageShell.astro";
+import { release, site } from "../config";
+
+const title = "Changelog — LLM Left";
+const description = "Read the latest LLM Left release notes, including Mac menu bar improvements for Codex banked resets, expiry times, and reset details.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: title,
+  url: `${site.url}/changelog/`,
+  description,
+  isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+};
+---
+
+<Layout title={title} description={description} path="/changelog/" schema={schema}>
+  <PageShell eyebrow="Changelog" title="What changed." intro="Public release notes for the signed LLM Left Mac app. The update feed remains the source of truth for the current version.">
+    <article class="release-entry">
+      <div class="release-entry-meta">
+        <span class="version-pill">{release.version}</span>
+        <time datetime={release.published}>August 22, 2026</time>
+      </div>
+      <div class="release-entry-copy">
+        <h2>Banked resets, at a glance.</h2>
+        <ul>
+          {release.notes.map((note) => <li>{note}</li>)}
+        </ul>
+        <a class="button button-dark" href={release.downloadUrl}>Download {release.version} <span aria-hidden="true">↓</span></a>
+      </div>
+    </article>
+  </PageShell>
+</Layout>
+
