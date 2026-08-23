@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MenuBarStrip from "../components/MenuBarStrip.astro";
 import PhonePreview from "../components/PhonePreview.astro";
 import ProductStage from "../components/ProductStage.astro";
 import UsagePanel from "../components/UsagePanel.astro";
@@ -90,16 +91,7 @@ const faqSchema = {
         <div class="surface-grid">
           <article class="surface-card">
             <div class="surface-visual surface-visual-menu" aria-hidden="true">
-              <div class="mac-menubar">
-                <div class="mb-left"><span class="mb-strong">Finder</span><span>File</span><span>Edit</span><span>View</span></div>
-                <div class="mb-right">
-                  <span class="mb-item">
-                    <svg class="mp-gauge" viewBox="0 0 20 20"><path d="M3.2 14.6a7.6 7.6 0 1 1 13.6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="14.2" r="1.5" fill="currentColor"/><path d="M10 13.4V8.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="4.9" cy="9.4" r="0.95" fill="currentColor"/><circle cx="15.1" cy="9.4" r="0.95" fill="currentColor"/></svg>
-                    C 68%&ensp;A 82%
-                  </span>
-                  <span>Fri 4:12 PM</span>
-                </div>
-              </div>
+              <MenuBarStrip />
               <div class="surface-panel-wrap"><UsagePanel /></div>
             </div>
             <div class="surface-body">
