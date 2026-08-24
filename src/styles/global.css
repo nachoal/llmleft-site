@@ -165,15 +165,18 @@ button, input, textarea, select { font: inherit; }
 .button-light:hover { border-color: #adb2ae; }
 
 .hero {
-  padding-top: 10.5rem;
-  padding-bottom: 7rem;
+  padding-top: 8.75rem;
+  padding-bottom: 6rem;
 }
 
-.hero-copy {
-  max-width: 68rem;
-  margin: 0 auto;
-  text-align: center;
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 4rem;
 }
+
+.hero-copy { min-width: 0; }
 
 .hero-badge {
   display: inline-flex;
@@ -193,37 +196,34 @@ button, input, textarea, select { font: inherit; }
 .hero-badge span { width: 0.48rem; height: 0.48rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgb(0 245 106 / 0.13); }
 
 .hero h1 {
-  max-width: 72rem;
-  margin: 1.5rem auto 0;
-  font-size: clamp(3.55rem, 7.4vw, 7.25rem);
+  margin: 1.4rem 0 0;
+  font-size: clamp(2.9rem, 3.9vw, 4.2rem);
   font-weight: 780;
-  letter-spacing: -0.072em;
-  line-height: 0.93;
+  letter-spacing: -0.052em;
+  line-height: 1.02;
   text-wrap: balance;
 }
-.hero-extension { display: block; color: #868b87; }
 .hero-lede {
-  max-width: 47rem;
-  margin: 1.8rem auto 0;
+  max-width: 34rem;
+  margin: 1.4rem 0 0;
   color: #565c58;
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-  line-height: 1.65;
-  text-wrap: balance;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
-.hero-proof { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.5rem; margin-top: 1.3rem; color: #6d726f; font-size: 0.78rem; font-weight: 600; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.9rem; }
+.hero-proof { display: flex; flex-wrap: wrap; gap: 0.75rem 1.4rem; margin-top: 1.25rem; color: #6d726f; font-size: 0.78rem; font-weight: 600; }
 .hero-proof span { display: inline-flex; align-items: center; gap: 0.35rem; }
 .hero-proof i { display: grid; place-items: center; width: 1rem; height: 1rem; border-radius: 50%; background: var(--green-wash); color: #007b35; font-size: 0.65rem; font-style: normal; }
 
-.product-stage {
+.hero-visual { min-width: 0; }
+.hero-screen {
   position: relative;
-  min-height: 37.5rem;
-  margin-top: 5.5rem;
+  min-height: 37rem;
   overflow: hidden;
   border: 1px solid #191c1a;
-  border-radius: 2.2rem;
-  background: #080b09;
+  border-radius: 1.7rem;
+  background: #0a0d0b;
   box-shadow: var(--shadow-stage);
   isolation: isolate;
 }
@@ -237,25 +237,16 @@ button, input, textarea, select { font: inherit; }
 }
 .stage-glow {
   position: absolute;
-  left: 43%;
-  bottom: -45%;
-  width: 58rem;
-  height: 44rem;
+  left: -22%;
+  bottom: -38%;
+  width: 36rem;
+  height: 30rem;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(0 245 106 / 0.34), rgb(0 245 106 / 0.06) 44%, transparent 70%);
+  background: radial-gradient(circle, rgb(0 245 106 / 0.3), rgb(0 245 106 / 0.06) 44%, transparent 70%);
   filter: blur(6px);
 }
-.stage-menubar { position: relative; z-index: 2; }
-.stage-menubar .mac-menubar { font-size: 0.78rem; padding: 0.55em 1.5em; }
-.stage-devices {
-  position: absolute;
-  z-index: 3;
-  inset: 2.6rem 4.5% 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-}
+.hero-screen .mac-menubar { position: relative; z-index: 2; font-size: 0.74rem; padding: 0.55em 1.2em; }
+.hero-screen-panel { position: absolute; z-index: 3; top: 2.55rem; right: 1.3rem; font-size: 0.88rem; }
 
 /* ---------------------------------------------------------------------------
    Native app mockups — faithful replicas of the real LLM Left UI
@@ -369,11 +360,6 @@ button, input, textarea, select { font: inherit; }
 .mb-item { display: inline-flex; align-items: center; gap: 0.4em; border-radius: 0.35em; background: rgb(255 255 255 / 0.16); padding: 0.2em 0.5em; color: #f2f3f5; font-variant-numeric: tabular-nums; }
 .mb-item .mp-gauge { width: 1.05em; height: 1.05em; }
 
-/* Stage arrangement: menu bar on top, panel hanging from its status item,
-   phone and widgets grounded at the bottom like a desk scene */
-.stage-panel { order: 3; align-self: flex-start; font-size: 0.9rem; }
-.stage-widget { order: 2; display: grid; justify-items: center; gap: 0.9rem; margin-bottom: 3.2rem; font-size: 0.95rem; }
-.stage-phone { position: relative; z-index: 2; order: 1; font-size: 1rem; }
 
 .signal-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgb(255 255 255 / 0.56); }
 .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
@@ -520,17 +506,14 @@ button, input, textarea, select { font: inherit; }
 .not-found h1 { margin: 1rem 0 0; font-size: clamp(3.2rem, 8vw, 7rem); font-weight: 780; letter-spacing: -0.075em; line-height: 0.92; }
 .not-found > p:not(.eyebrow) { color: var(--muted); }
 
-@media (max-width: 1080px) {
-  .stage-widget { display: none; }
-}
-
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-shell { grid-template-columns: 1fr auto; }
-  .hero { padding-top: 9.5rem; }
-  .stage-devices { inset: 2.4rem 4% 0; gap: 1.4rem; }
-  .stage-panel { font-size: 0.8rem; }
-  .stage-phone { font-size: 0.9rem; }
+  .hero { padding-top: 8.25rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-lede { max-width: 40rem; }
+  .hero-screen { min-height: 34rem; }
+  .hero-screen-panel { right: 1.6rem; font-size: 0.84rem; }
   .section-heading { grid-template-columns: 1fr; gap: 1.2rem; }
   .section-heading p { max-width: 38rem; }
   .surface-grid { grid-template-columns: 1fr; max-width: 30rem; margin-inline: auto; }
@@ -548,19 +531,17 @@ button, input, textarea, select { font: inherit; }
   .brand { gap: 0.5rem; font-size: 0.9rem; }
   .brand img { width: 1.8rem; height: 1.8rem; }
   .button-small { min-height: 2.65rem; padding: 0.58rem 0.75rem; font-size: 0.77rem; }
-  .hero { padding-top: 8.5rem; padding-bottom: 4.5rem; }
+  .hero { padding-top: 7.5rem; padding-bottom: 4.5rem; }
   .hero-badge { font-size: 0.62rem; }
-  .hero h1 { font-size: clamp(3.35rem, 16vw, 5.2rem); line-height: 0.9; }
-  .hero-extension { display: none; }
-  .hero-lede { margin-top: 1.35rem; font-size: 1rem; line-height: 1.58; }
+  .hero h1 { font-size: clamp(2.3rem, 9.2vw, 3rem); }
+  .hero-lede { margin-top: 1.2rem; font-size: 1rem; line-height: 1.6; }
   .hero-actions .button { width: 100%; }
   .hero-proof { gap: 0.55rem 1rem; }
-  .product-stage { min-height: 27rem; margin-top: 3.5rem; border-radius: 1.5rem; }
-  .stage-menubar .mac-menubar { font-size: 0.6rem; }
-  .stage-menubar .mb-left span:not(.mb-strong) { display: none; }
-  .stage-devices { inset: 1.9rem 0.7rem 0; gap: 0.7rem; }
-  .stage-panel { font-size: 0.58rem; }
-  .stage-phone { font-size: 0.56rem; }
+  .hero-grid { gap: 2.4rem; }
+  .hero-screen { min-height: 26.5rem; border-radius: 1.3rem; }
+  .hero-screen .mac-menubar { font-size: 0.6rem; }
+  .hero-screen .mb-left span:not(.mb-strong) { display: none; }
+  .hero-screen-panel { top: 1.9rem; right: 0.8rem; font-size: 0.64rem; }
   .signal-grid { grid-template-columns: 1fr; }
   .signal-grid span { padding: 0.8rem; font-size: 0.6rem; }
   .signal-grid span + span { border-top: 1px solid var(--line); border-left: 0; }

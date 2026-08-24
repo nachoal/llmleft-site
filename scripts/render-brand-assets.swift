@@ -102,7 +102,7 @@ writePNG(name: "og.png", width: 1200, height: 630) {
     let paragraph = NSMutableParagraphStyle()
     paragraph.lineSpacing = -4
     let headline = NSAttributedString(
-        string: "Know what you have left.",
+        string: "Claude and Codex limits,\nin your menu bar.",
         attributes: [
             .font: NSFont.systemFont(ofSize: 70, weight: .bold),
             .foregroundColor: NSColor.white,
@@ -110,16 +110,16 @@ writePNG(name: "og.png", width: 1200, height: 630) {
             .kern: -2.6,
         ]
     )
-    headline.draw(in: NSRect(x: 80, y: 185, width: 950, height: 96))
+    headline.draw(in: NSRect(x: 80, y: 150, width: 1040, height: 170))
 
     let subtitle = NSAttributedString(
-        string: "Mac menu bar, iPhone, and widgets. Credentials stay on your Mac.",
+        string: "Live limits, reset times, and pace on Mac, iPhone, and widgets.",
         attributes: [
             .font: NSFont.systemFont(ofSize: 27, weight: .regular),
             .foregroundColor: color(0xb8bdb9),
         ]
     )
-    subtitle.draw(in: NSRect(x: 83, y: 112, width: 900, height: 44))
+    subtitle.draw(in: NSRect(x: 83, y: 92, width: 900, height: 44))
 
     let wordmark = NSAttributedString(
         string: "LLM LEFT",

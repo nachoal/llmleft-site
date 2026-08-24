@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import MenuBarStrip from "../components/MenuBarStrip.astro";
 import PhonePreview from "../components/PhonePreview.astro";
-import ProductStage from "../components/ProductStage.astro";
 import UsagePanel from "../components/UsagePanel.astro";
 import WidgetMedium from "../components/WidgetMedium.astro";
 import { download, faqs, product, release, site } from "../config";
@@ -48,29 +47,37 @@ const faqSchema = {
 <Layout schema={[softwareSchema, faqSchema]}>
   <main>
     <section class="hero page-container">
-      <div class="hero-copy">
-        <p class="hero-badge"><span></span> Claude + Codex usage tracker</p>
-        <h1>
-          Know what you have left.
-          <span class="hero-extension">Before it slows you down.</span>
-        </h1>
-        <p class="hero-lede">
-          See limits, reset times, and pace from your Mac menu bar, iPhone, and widgets.
-          Your credentials and prompts stay on your Mac.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-green" href={download.primaryHref}>
-            <span>{download.primaryLabel}</span><span aria-hidden="true">↓</span>
-          </a>
-          <a class="button button-light" href={download.secondaryHref}>{download.secondaryLabel}</a>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="hero-badge"><span></span> Claude + Codex usage tracker</p>
+          <h1>Claude and Codex limits, in your menu bar.</h1>
+          <p class="hero-lede">
+            LLM Left is a free Mac app that shows how much usage you have left, when each
+            limit resets, and whether your pace will last the window. An iPhone app and
+            widgets stay in sync — your credentials never leave your Mac.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-green" href={download.primaryHref}>
+              <span>{download.primaryLabel}</span><span aria-hidden="true">↓</span>
+            </a>
+            <a class="button button-light" href={download.secondaryHref}>{download.secondaryLabel}</a>
+          </div>
+          <div class="hero-proof" aria-label="System requirements and privacy">
+            <span><i>✓</i> Free</span>
+            <span><i>✓</i> {product.minimumMacOS}</span>
+            <span><i>✓</i> {product.architecture}</span>
+            <span><i>✓</i> No account</span>
+          </div>
         </div>
-        <div class="hero-proof" aria-label="System requirements and privacy">
-          <span><i>✓</i> {product.minimumMacOS}</span>
-          <span><i>✓</i> {product.architecture}</span>
-          <span><i>✓</i> No account</span>
+        <div class="hero-visual" aria-label="LLM Left open from the Mac menu bar, showing Codex and Claude limits">
+          <div class="hero-screen">
+            <div class="stage-grid" aria-hidden="true"></div>
+            <div class="stage-glow" aria-hidden="true"></div>
+            <MenuBarStrip />
+            <div class="hero-screen-panel"><UsagePanel /></div>
+          </div>
         </div>
       </div>
-      <ProductStage />
     </section>
 
     <section class="signal-strip" aria-label="LLM Left product principles">
@@ -86,7 +93,7 @@ const faqSchema = {
         <p class="eyebrow eyebrow-green">One live snapshot</p>
         <div class="section-heading dark-heading">
           <h2>One glance. Your providers. Three screens.</h2>
-          <p>LLM Left turns usage windows into a calm signal you can check without opening another dashboard.</p>
+          <p>The same snapshot on every screen: how much is left, when it resets, and whether your pace will last.</p>
         </div>
         <div class="surface-grid">
           <article class="surface-card">
@@ -136,7 +143,7 @@ const faqSchema = {
     <section class="workflow-section page-container">
       <p class="eyebrow">How it works</p>
       <div class="section-heading">
-        <h2>A small local bridge. A useful private snapshot.</h2>
+        <h2>Your Mac reads the usage. iCloud carries a snapshot.</h2>
         <p>The Mac reads supported provider usage locally, shapes only the status fields you need, and makes them available to your Apple devices.</p>
       </div>
       <ol class="workflow-list">
@@ -205,7 +212,7 @@ const faqSchema = {
     <section class="closing-wrap page-container">
       <div class="closing-card">
         <p>LLM LEFT FOR MAC</p>
-        <h2>Know the limit.<br />Keep the flow.</h2>
+        <h2>Never hit a limit<br />by surprise.</h2>
         <div class="closing-actions">
           <a class="button button-black" href={release.downloadUrl}>Download version {release.version} <span aria-hidden="true">↓</span></a>
           <a href="/download/">Release details →</a>
