@@ -24,11 +24,13 @@ const schema = {
       </div>
       <div class="privacy-table-body" role="row">
         <ul role="cell">
-          <li>Provider credentials</li>
+          <li>Provider credentials and login files</li>
           <li>Prompts and conversations</li>
           <li>Other command-line output</li>
           <li>The local bridge token</li>
           <li>Detailed usage history</li>
+          <li>Account identity hashes and operation records</li>
+          <li>The OpenRouter management key</li>
         </ul>
         <ul role="cell">
           <li>Provider and plan labels</li>
@@ -36,6 +38,8 @@ const schema = {
           <li>Limit names and windows</li>
           <li>Reset dates and forecasts</li>
           <li>Snapshot time and pace</li>
+          <li>Account names, states, and check times</li>
+          <li>OpenRouter credit and spend totals</li>
         </ul>
       </div>
     </div>
@@ -43,6 +47,12 @@ const schema = {
     <div class="prose-block">
       <h2>Your private iCloud account</h2>
       <p>The synced snapshot uses your private CloudKit database. LLM Left does not run an account service, and it does not send the snapshot to an LLM Left server.</p>
+
+      <h2>Which Mac publishes</h2>
+      <p>Only a Mac with publishing turned on in Settings > iCloud Sync writes the snapshot. A second Mac can turn publishing off and keep reading usage for its own menu bar without touching the shared record.</p>
+
+      <h2>Multiple accounts</h2>
+      <p>Each managed account keeps its native login files and identity hash on the Mac. Its name, quota windows, check times, and status can appear in the snapshot, so use account names you are comfortable syncing. Removing an account from monitoring does not remove its login files. Optional window-start requests send a small fixed prompt to the provider and use quota; they are off by default and never spend a reset credit.</p>
 
       <h2>No product analytics</h2>
       <p>The app does not send usage analytics. This website has no analytics script, advertising pixel, session recorder, or third-party font request.</p>
@@ -58,4 +68,3 @@ const schema = {
     </div>
   </PageShell>
 </Layout>
-

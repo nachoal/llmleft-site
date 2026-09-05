@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AccountsPanel from "../components/AccountsPanel.astro";
 import MenuBarStrip from "../components/MenuBarStrip.astro";
 import PhonePreview from "../components/PhonePreview.astro";
 import UsagePanel from "../components/UsagePanel.astro";
@@ -27,7 +28,11 @@ const softwareSchema = {
   featureList: [
     "Claude usage tracking",
     "Codex usage tracking",
+    "Grok usage tracking",
+    "OpenRouter credit and spend",
+    "Multiple Codex and Claude accounts",
     "Reset times and remaining limits",
+    "Low-usage and reset notifications",
     "Mac menu bar status",
     "Private CloudKit snapshot for iPhone and widgets",
   ],
@@ -53,8 +58,10 @@ const faqSchema = {
           <h1>Claude and Codex limits, in your menu bar.</h1>
           <p class="hero-lede">
             LLM Left is a free Mac app that shows how much usage you have left, when each
-            limit resets, and whether your pace will last the window. An iPhone app and
-            widgets stay in sync — your credentials never leave your Mac.
+            limit resets, and whether your pace will last the window. It watches Codex, Claude,
+            Grok, and OpenRouter, keeps several accounts side by side, and warns you before a
+            window runs out. An iPhone app and widgets stay in sync — your credentials never
+            leave your Mac.
           </p>
           <div class="hero-actions">
             <a class="button button-green" href={download.primaryHref}>
@@ -82,7 +89,7 @@ const faqSchema = {
 
     <section class="signal-strip" aria-label="LLM Left product principles">
       <div class="page-container signal-grid">
-        <span>Limits, not guesswork</span>
+        <span>Codex, Claude, Grok &amp; OpenRouter</span>
         <span>Private CloudKit snapshot</span>
         <span>Zero analytics</span>
       </div>
@@ -104,7 +111,7 @@ const faqSchema = {
             <div class="surface-body">
               <span class="card-number">01</span>
               <h3>Mac menu bar</h3>
-              <p>See the next limit before you start a long session. Open the panel for reset times, pace, and history.</p>
+              <p>See the next limit before you start a long session. Open the panel for reset times, pace, banked resets, and every account you have signed in.</p>
             </div>
           </article>
           <article class="surface-card">
@@ -132,11 +139,72 @@ const faqSchema = {
             </div>
             <div class="surface-body">
               <span class="card-number">03</span>
-              <h3>Home & Lock widgets</h3>
+              <h3>Home &amp; Lock widgets</h3>
               <p>Put remaining usage where you already look, with a timestamp that makes stale data clear.</p>
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="accounts" class="accounts-section page-container">
+      <p class="eyebrow">Several logins</p>
+      <div class="accounts-grid">
+        <div class="accounts-copy">
+          <h2>Every account. One menu.</h2>
+          <p>Sign in to more than one Codex or Claude plan and keep them side by side. Each account has its own quota, history, and alerts, and the menu shows each one's tightest window on a single row.</p>
+          <ul class="accounts-points">
+            <li><strong>One row per login.</strong> Alias, plan, and the tightest window, with the CLI's own login badged as the default so nothing shows twice.</li>
+            <li><strong>Choose who works next.</strong> Pin the account new sessions use, or let Automatic take the one with the most room while keeping a reserve.</li>
+            <li><strong>Open a session in Terminal.</strong> Pick a project folder and the CLI opens signed in as that account. When it exits, choose another account and press Enter to continue in the same folder.</li>
+            <li><strong>Start a usage window early.</strong> Optional, per account: a tiny fixed request starts the five-hour clock before you sit down, so the reset lands earlier in your day.</li>
+          </ul>
+        </div>
+        <div class="accounts-stage" aria-label="LLM Left accounts menu with two Codex logins, two Claude logins, the Grok login, and OpenRouter credit">
+          <div class="stage-grid" aria-hidden="true"></div>
+          <div class="stage-glow" aria-hidden="true"></div>
+          <AccountsPanel />
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section page-container">
+      <p class="eyebrow">Also watching</p>
+      <div class="section-heading">
+        <h2>The details that decide your day.</h2>
+        <p>Alerts, pace, banked resets, and a menu bar that says exactly as much as you want it to.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="card-number">01</span>
+          <h3>Alerts that wait for proof</h3>
+          <p>A warning at 10% remaining and again when a window is used up. The "ready" alert fires only after a fresh check confirms quota is back above the reserve.</p>
+        </article>
+        <article class="feature-card">
+          <span class="card-number">02</span>
+          <h3>Pace and forecasts</h3>
+          <p>Recent daily use against the daily target, with a projected figure at reset, built from history that never leaves your Mac.</p>
+        </article>
+        <article class="feature-card">
+          <span class="card-number">03</span>
+          <h3>Banked Codex resets</h3>
+          <p>How many resets you have banked, when the next one expires, and the details behind each one.</p>
+        </article>
+        <article class="feature-card">
+          <span class="card-number">04</span>
+          <h3>Grok and OpenRouter</h3>
+          <p>Grok's weekly window from the local Grok CLI, and OpenRouter prepaid credit with today's and this week's spend.</p>
+        </article>
+        <article class="feature-card">
+          <span class="card-number">05</span>
+          <h3>A menu bar that fits</h3>
+          <p>Icon only, the tightest window across the accounts in use, one number per provider, or one number per account.</p>
+        </article>
+        <article class="feature-card">
+          <span class="card-number">06</span>
+          <h3>Two Macs, one snapshot</h3>
+          <p>Choose which Mac publishes to iCloud. The other keeps its own menu bar without overwriting what your iPhone shows.</p>
+        </article>
       </div>
     </section>
 
@@ -149,11 +217,11 @@ const faqSchema = {
       <ol class="workflow-list">
         <li>
           <span>01</span>
-          <div><h3>Read locally</h3><p>LLM Left reads the available Claude and Codex usage data on your Mac through its signed local helper.</p></div>
+          <div><h3>Read locally</h3><p>LLM Left reads Codex, Claude, and Grok usage on your Mac through its signed local helper. OpenRouter credit comes from a management key that stays in your Keychain.</p></div>
         </li>
         <li>
           <span>02</span>
-          <div><h3>Reduce to a snapshot</h3><p>Provider labels, remaining percentages, reset dates, and forecasts become a small status record.</p></div>
+          <div><h3>Reduce to a snapshot</h3><p>Provider labels, remaining percentages, reset dates, forecasts, and account names become a small status record.</p></div>
         </li>
         <li>
           <span>03</span>
@@ -167,7 +235,7 @@ const faqSchema = {
         <div class="privacy-copy">
           <p class="eyebrow">Privacy by architecture</p>
           <h2>Your usage crosses devices. Your credentials do not.</h2>
-          <p>LLM Left does not sync prompts, conversations, provider credentials, bridge tokens, or detailed history. The website does not load analytics or tracking pixels.</p>
+          <p>LLM Left does not sync prompts, conversations, provider credentials, login files, bridge tokens, or detailed history. Account names travel with the snapshot; their logins stay behind. The website does not load analytics or tracking pixels.</p>
           <a class="text-link" href="/privacy/">Read the exact data boundary <span aria-hidden="true">→</span></a>
         </div>
         <div class="privacy-diagram" aria-label="Data that stays on the Mac and data that syncs through private CloudKit">
@@ -222,4 +290,3 @@ const faqSchema = {
     </section>
   </main>
 </Layout>
-

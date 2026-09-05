@@ -599,6 +599,86 @@ button, input, textarea, select { font: inherit; }
   .release-entry-meta { flex-direction: row; align-items: center; }
 }
 
+/* ---------------------------------------------------------------------------
+   Accounts menu replica (MenuBarViews.swift + AccountMenuRows.swift), dark.
+   Proportions come from the real 390pt-wide panel measured against 23em.
+--------------------------------------------------------------------------- */
+.pv-mark-grok { background: #e9eaee; -webkit-mask-image: url("/mark-grok.svg"); mask-image: url("/mark-grok.svg"); }
+.pv-mark-openrouter { background: #8b4dff; -webkit-mask-image: url("/mark-openrouter.svg"); mask-image: url("/mark-openrouter.svg"); }
+.pct-8 { width: 8%; }
+.pct-75 { width: 75%; }
+.pct-83 { width: 83%; }
+.pct-99 { width: 99%; }
+.pct-100 { width: 100%; }
+.ap-panel { --sys-red: #ff453a; }
+.ap-body { padding: 0.15em 0.6em 0.1em; }
+.ap-section { display: flex; align-items: center; justify-content: space-between; gap: 0.5em; height: 1.42em; margin-top: 0.35em; padding: 0 0.35em; }
+.ap-section > span { color: var(--sys-lab2); font-size: 0.65em; font-weight: 650; white-space: nowrap; }
+.ap-section > .ap-picker, .ap-section > .ap-detail { font-weight: 450; }
+.ap-picker { display: inline-flex; align-items: center; gap: 0.4em; }
+.ap-picker svg { width: 0.75em; height: 0.95em; flex: none; }
+.ap-row { display: flex; align-items: center; height: 1.65em; padding: 0 0.35em; border-radius: 0.35em; }
+.ap-check { display: grid; place-items: center; width: 1.06em; height: 100%; flex: none; color: var(--sys-lab); font-style: normal; }
+.ap-check svg { width: 0.62em; height: 0.62em; }
+.ap-row .pv-mark { width: 0.85em; height: 0.85em; margin: 0 0.45em 0 0.22em; }
+.ap-label { flex: none; font-size: 0.77em; font-weight: 500; }
+.ap-plan { flex: none; margin-left: 0.5em; color: var(--sys-lab2); font-size: 0.65em; white-space: nowrap; }
+.ap-badge { flex: none; margin-left: 0.5em; border-radius: 0.5em; padding: 0.24em 0.55em; background: rgb(235 235 245 / 0.14); color: var(--sys-lab2); font-size: 0.53em; font-weight: 650; letter-spacing: 0.045em; }
+.ap-badge-low { background: rgb(255 159 10 / 0.16); color: var(--sys-orange); }
+.ap-badge-out { background: rgb(255 69 58 / 0.16); color: var(--sys-red); }
+.ap-meter { width: 2.6em; height: 0.24em; flex: none; margin-left: auto; overflow: hidden; border-radius: 99em; background: var(--sys-trk); }
+.ap-meter span { display: block; height: 100%; border-radius: inherit; background: var(--sys-blue); }
+.ap-meter .ap-meter-orange { background: var(--sys-orange); }
+.ap-pct { width: 3.3em; flex: none; margin-left: 0.5em; font-size: 0.71em; font-weight: 650; text-align: right; font-variant-numeric: tabular-nums; }
+.ap-pct-low { color: var(--sys-orange); }
+.ap-money { flex: none; margin-left: auto; font-size: 0.71em; font-weight: 650; font-variant-numeric: tabular-nums; }
+.ap-chevron { width: 1.2em; flex: none; margin-left: 0.3em; color: var(--sys-lab3); font-size: 0.7em; font-style: normal; font-weight: 700; text-align: center; }
+.ap-legend { display: flex; align-items: center; gap: 0.5em; padding: 0.8em 0.55em 0.65em; color: var(--sys-lab2); font-size: 0.65em; }
+.ap-legend svg { width: 0.85em; height: 0.85em; flex: none; }
+.ap-footer-right { display: inline-flex; align-items: center; gap: 0.85em; }
+.ap-caret { color: var(--sys-lab2); font-size: 0.8em; font-style: normal; }
+
+/* Accounts section */
+.accounts-section { padding-top: 8.5rem; padding-bottom: 1rem; }
+.accounts-grid { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); align-items: center; gap: 4.5rem; margin-top: 1.2rem; }
+.accounts-copy { min-width: 0; }
+.accounts-copy h2 { max-width: 32rem; margin: 0; font-size: clamp(2.5rem, 4.8vw, 4.5rem); font-weight: 730; letter-spacing: -0.06em; line-height: 0.98; text-wrap: balance; }
+.accounts-copy > p { max-width: 34rem; margin: 1.5rem 0 0; color: var(--muted); line-height: 1.75; }
+.accounts-points { margin: 2.2rem 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.accounts-points li { padding: 1rem 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+.accounts-points strong { color: var(--ink); font-weight: 750; }
+.accounts-stage { position: relative; display: grid; place-items: center; min-width: 0; min-height: 34rem; overflow: hidden; border: 1px solid #191c1a; border-radius: 1.7rem; background: #0a0d0b; padding: 2.5rem 1.25rem; box-shadow: var(--shadow-stage); isolation: isolate; }
+.accounts-stage .stage-glow { top: -34%; right: -26%; bottom: auto; left: auto; }
+.accounts-stage .ap-panel { position: relative; z-index: 2; font-size: clamp(0.85rem, 1.4vw + 0.1rem, 1.14rem); }
+
+/* Feature grid */
+.features-section { padding-top: 6.5rem; padding-bottom: 0; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3.5rem; }
+.feature-card { border: 1px solid var(--line); border-radius: 1.5rem; background: var(--white); padding: 1.6rem 1.6rem 1.7rem; }
+.feature-card .card-number { color: var(--green-deep); }
+.feature-card h3 { margin: 0.75rem 0 0; font-size: 1.22rem; letter-spacing: -0.035em; }
+.feature-card p { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.92rem; line-height: 1.65; }
+
+/* Changelog list */
+.release-entry + .release-entry { margin-top: 2.6rem; }
+
+@media (max-width: 900px) {
+  .accounts-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .accounts-stage { min-height: 32rem; }
+  .accounts-stage .ap-panel { font-size: 1.05rem; }
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 680px) {
+  .accounts-section { padding-top: 5.5rem; }
+  .accounts-copy h2 { font-size: 2.75rem; }
+  .accounts-stage { min-height: 24rem; border-radius: 1.3rem; padding: 1.5rem 0.75rem; }
+  .accounts-stage .ap-panel { font-size: 0.8rem; }
+  .features-section { padding-top: 4rem; }
+  .feature-grid { grid-template-columns: 1fr; margin-top: 2.2rem; }
+  .feature-card { padding: 1.2rem 1.2rem 1.3rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }

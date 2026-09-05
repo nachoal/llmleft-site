@@ -1,10 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageShell from "../components/PageShell.astro";
-import { product, release, site } from "../config";
+import { formatReleaseDate, product, release, site } from "../config";
 
 const title = "Download LLM Left for Mac";
 const description = `Download LLM Left ${release.version}, the signed Claude and Codex usage tracker for Apple silicon Macs running macOS 14 or later.`;
+const published = formatReleaseDate(release.published);
 const schema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -48,7 +49,7 @@ const schema = {
         <h2>Release integrity</h2>
         <dl>
           <div><dt>Version</dt><dd>{release.version} ({release.build})</dd></div>
-          <div><dt>Published</dt><dd>August 22, 2026</dd></div>
+          <div><dt>Published</dt><dd>{published}</dd></div>
           <div><dt>SHA-256</dt><dd><code>{release.sha256}</code></dd></div>
         </dl>
       </aside>
@@ -63,4 +64,3 @@ const schema = {
     </div>
   </PageShell>
 </Layout>
-
